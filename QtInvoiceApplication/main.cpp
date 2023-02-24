@@ -7,12 +7,15 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     QtInvoiceApplication w;
-    QSizeGrip* sizeGrip = new QSizeGrip(&w);
-    //sizeGrip->setFixedSize(16, 16);
-    //sizeGrip->move(w.width() - sizeGrip->width(), w.height() - sizeGrip->height());
+    //QGridLayout* layout = new QGridLayout(&w);
+    //QSizeGrip* sizeGrip = new QSizeGrip(&w);
 
 
-    //w.setWindowFlags(sizeGrip, Qt::AlignBottom | Qt::AlignRight);
+    //layout->addWidget(sizeGrip, 0, Qt::AlignBottom | Qt::AlignRight);
+    //layout->addWidget(sizeGrip, 0,0,1,1, Qt::AlignBottom | Qt::AlignRight);
+
+
+    //w.setLayout(layout);
     w.show();
     return a.exec();
 }
