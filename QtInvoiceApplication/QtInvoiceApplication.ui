@@ -66,6 +66,13 @@ QWidget {
 
 #version_label {
 	color: rgb(255, 255, 255);
+}
+
+
+
+#activeUserMenu{
+	
+	color: rgb(255, 255, 255);
 }</string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -318,7 +325,7 @@ QWidget {
            </widget>
           </item>
           <item>
-           <widget class="QFrame" name="activeUser_2">
+           <widget class="QFrame" name="activeUser">
             <property name="minimumSize">
              <size>
               <width>60</width>

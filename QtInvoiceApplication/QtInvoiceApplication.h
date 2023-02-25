@@ -2,6 +2,8 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_QtInvoiceApplication.h"
+#include "UserHoverMenu.h"
+
 #include <QMouseEvent>
 #include <QPoint>
 #include <QSize>
@@ -17,6 +19,9 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    HoverFrame* hoverFrame;
+
+    QFrame* activeUserFrame;
 
     QPoint cur_pos;
     QPoint new_pos;
@@ -24,7 +29,7 @@ private:
     QSize new_size;
     QSize windowSize;
 
-    int edgeSize = 10;
+    const int edgeSize = 8;
     bool isMaximised = false;
     bool isResizing = false;
 
@@ -35,8 +40,12 @@ private:
     void mouseMoveEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
     void mouseDoubleClickEvent(QMouseEvent* event);
+    bool eventFilter(QObject* object, QEvent* event);
 
     void changeEvent(QEvent* event);
+    void leaveEvent(QEvent* event);
+    void actionUserSettingsTriggered();
+    void actionSignOutTriggered();
 
 private slots:
     void on_closeButton_clicked();

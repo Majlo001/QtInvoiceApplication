@@ -12,13 +12,27 @@ QtInvoiceApplication::QtInvoiceApplication(QWidget* parent)
     this->setMouseTracking(true);
     this->setAttribute(Qt::WA_Hover);
 
+    activeUserFrame = ui->activeUser;
+
+
 
     ui->restoreButton->setVisible(false);
+
+    hoverFrame = new HoverFrame(activeUserFrame);
+    activeUserFrame->installEventFilter(this);
+
+
+
+    connect(hoverFrame->action1, &QAction::triggered, this, &QtInvoiceApplication::actionUserSettingsTriggered);
+    connect(hoverFrame->action2, &QAction::triggered, this, &QtInvoiceApplication::actionSignOutTriggered);
+
 }
 
 QtInvoiceApplication::~QtInvoiceApplication()
 {
     delete ui;
+    delete hoverFrame;
+    delete activeUserFrame;
 }
 
 
@@ -31,8 +45,12 @@ void QtInvoiceApplication::mousePressEvent(QMouseEvent* event) {
 
     if (event->button() == Qt::LeftButton) {
         QPoint cursorPos = event->pos();
-        //QRect windowRect = frameGeometry();
         QRect windowRect = geometry();
+
+        QMessageBox msg;
+
+
+        int tmpRectY = windowRect.y() + windowRect.height();
 
         // Check if the cursor is on the top edge of the window
         if (cursorPos.y() <= windowRect.top()) {
@@ -40,11 +58,12 @@ void QtInvoiceApplication::mousePressEvent(QMouseEvent* event) {
             resizingStartSize = size();
         }
         // Check if the cursor is on the bottom edge of the window
-        else if (cursorPos.y() >= windowRect.bottom()) {
+        else if (cursorPos.y() <= tmpRectY && cursorPos.y() >= (tmpRectY - edgeSize)) {
             isResizing = true;
             resizingStartPos = cursorPos;
             resizingStartSize = size();
-            setCursor(Qt::SizeVerCursor);
+            msg.setText("Bottom");
+            msg.exec();
         }
         // Check if the cursor is on the left edge of the window
         else if (cursorPos.x() <= windowRect.left()) {
@@ -83,14 +102,39 @@ void QtInvoiceApplication::mouseMoveEvent(QMouseEvent* event) {
         cur_pos = event->globalPosition().toPoint();
     }
 
-    //windowSize = size();
-    //if (event->pos().y() > windowSize.height() - edgeSize) {
-    //    // The cursor is on the bottom edge of the window
-    //    setCursor(Qt::SizeVerCursor);
+
+    QPoint cursorPos = event->pos();
+    QRect windowRect = geometry();
+    int tmpRectY = windowRect.y() + windowRect.height();
+
+    if (cursorPos.y() <= tmpRectY && cursorPos.y() >= (tmpRectY - edgeSize)) {
+        setCursor(QCursor(Qt::SizeVerCursor));
+    }
+    else {
+        setCursor(QCursor(Qt::ArrowCursor));
+    }
+
+    //int x = event->x();
+    //int y = event->y();
+    //int width = this->width();
+    //int height = this->height();
+
+    //if (y >= height - edgeSize) {
+    //    setCursor(QCursor(Qt::SizeVerCursor)); // krawêdŸ dolna
+    //}
+    //else if (x <= edgeSize) {
+    //    setCursor(QCursor(Qt::SizeHorCursor)); // krawêdŸ lewa
+    //}
+    //else if (x >= width - edgeSize) {
+    //    setCursor(QCursor(Qt::SizeHorCursor)); // krawêdŸ prawa
+    //}
+    //else if (y <= edgeSize) {
+    //    setCursor(QCursor(Qt::SizeVerCursor)); // krawêdŸ górna
     //}
     //else {
-    //    setCursor(Qt::ArrowCursor);
+    //    setCursor(QCursor(Qt::ArrowCursor)); // pozosta³e obszary
     //}
+
 
 
     if (isResizing) {
@@ -103,11 +147,13 @@ void QtInvoiceApplication::mouseMoveEvent(QMouseEvent* event) {
             resize(newWidth, newHeight);
         }
     }
+
+    QWidget::mouseMoveEvent(event);
 }
 
-void QtInvoiceApplication::changeEvent(QEvent* event) {
-    QMessageBox msg;
 
+
+void QtInvoiceApplication::changeEvent(QEvent* event) {
     if (event->type() == QEvent::WindowStateChange) {
         if (windowState().testFlag(Qt::WindowNoState)) {
             if (isMaximised == true) {
@@ -128,6 +174,10 @@ void QtInvoiceApplication::changeEvent(QEvent* event) {
         }
     }
     event->accept();
+}
+void QtInvoiceApplication::leaveEvent(QEvent* event) {
+    setCursor(QCursor(Qt::ArrowCursor));
+    QWidget::leaveEvent(event);
 }
 
 
@@ -151,3 +201,26 @@ void QtInvoiceApplication::on_restoreButton_clicked() {
     setWindowState(Qt::WindowNoState);
 }
 
+
+
+bool QtInvoiceApplication::eventFilter(QObject* object, QEvent* event){
+    if (object == activeUserFrame) {
+        if (event->type() == QEvent::Enter) {
+            hoverFrame->onHoverEnter();
+            return true;
+        }
+        /*else if (event->type() == QEvent::Leave) {
+            hoverFrame->onHoverLeave();
+            return true;
+        }*/
+    }
+
+
+    return QMainWindow::eventFilter(object, event);
+}
+void QtInvoiceApplication::actionUserSettingsTriggered() {
+    hoverFrame->actionUserSettings();
+}
+void QtInvoiceApplication::actionSignOutTriggered() {
+    hoverFrame->actionSignOut();
+}
