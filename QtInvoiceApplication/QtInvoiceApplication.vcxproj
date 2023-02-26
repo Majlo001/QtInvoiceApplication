@@ -83,14 +83,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="dashboardWidget.cpp" />
     <ClCompile Include="UserHoverMenu.cpp" />
     <QtRcc Include="QtInvoiceApplication.qrc" />
+    <QtUic Include="dashboardWidget.ui" />
     <QtUic Include="QtInvoiceApplication.ui" />
     <QtMoc Include="QtInvoiceApplication.h" />
     <ClCompile Include="QtInvoiceApplication.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="dashboardWidget.h" />
     <ClInclude Include="UserHoverMenu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

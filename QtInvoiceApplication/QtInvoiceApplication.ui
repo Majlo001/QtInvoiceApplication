@@ -61,6 +61,19 @@ QWidget {
 	border-image: url(&quot;images/icons/resize-bottom-right.svg&quot;) 0 0 0 0 stretch stretch;
 }
 
+#sidebarButtons QPushButton{
+	color: rgb(255, 255, 255);
+}
+#sidebarButtons QPushButton:hover {
+	background-color: rgb(135,135,135);
+}
+#bottomMenu.QPushButton:pressed {	
+	background-color: rgb(135,135,135);
+}
+#bottomMenu QPushButton:active {	
+	background-color: rgb(135,135,135);
+}
+
 
 
 
@@ -71,7 +84,6 @@ QWidget {
 
 
 #activeUserMenu{
-	
 	color: rgb(255, 255, 255);
 }</string>
    </property>
@@ -207,104 +219,183 @@ QWidget {
               <number>0</number>
              </property>
              <item>
-              <widget class="QFrame" name="frame">
+              <widget class="QPushButton" name="dashboardButton">
                <property name="minimumSize">
                 <size>
                  <width>60</width>
-                 <height>52</height>
+                 <height>60</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
                  <width>60</width>
-                 <height>52</height>
+                 <height>60</height>
                 </size>
                </property>
                <property name="cursor">
                 <cursorShape>PointingHandCursor</cursorShape>
                </property>
-               <property name="mouseTracking">
-                <bool>true</bool>
+               <property name="text">
+                <string/>
                </property>
-               <property name="tabletTracking">
-                <bool>true</bool>
+               <property name="icon">
+                <iconset>
+                 <normaloff>images/icons/dashboard-light-48.png</normaloff>images/icons/dashboard-light-48.png</iconset>
                </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(170, 0, 0);</string>
+               <property name="iconSize">
+                <size>
+                 <width>32</width>
+                 <height>32</height>
+                </size>
                </property>
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
+               <property name="autoRepeatDelay">
+                <number>300</number>
                </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
+               <property name="autoRepeatInterval">
+                <number>100</number>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QFrame" name="frame_3">
+              <widget class="QPushButton" name="invoiceButton">
                <property name="minimumSize">
                 <size>
                  <width>60</width>
-                 <height>52</height>
+                 <height>60</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
                  <width>60</width>
-                 <height>52</height>
+                 <height>60</height>
                 </size>
                </property>
                <property name="cursor">
                 <cursorShape>PointingHandCursor</cursorShape>
                </property>
-               <property name="mouseTracking">
-                <bool>true</bool>
+               <property name="text">
+                <string/>
                </property>
-               <property name="tabletTracking">
-                <bool>true</bool>
+               <property name="icon">
+                <iconset>
+                 <normaloff>images/icons/document-light-32.png</normaloff>images/icons/document-light-32.png</iconset>
                </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(170, 0, 0);</string>
+               <property name="iconSize">
+                <size>
+                 <width>32</width>
+                 <height>32</height>
+                </size>
                </property>
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
-               </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
+               <property name="autoRepeatDelay">
+                <number>300</number>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QFrame" name="frame_2">
+              <widget class="QPushButton" name="contactButton">
                <property name="minimumSize">
                 <size>
                  <width>60</width>
-                 <height>52</height>
+                 <height>60</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
                  <width>60</width>
-                 <height>52</height>
+                 <height>60</height>
                 </size>
                </property>
                <property name="cursor">
                 <cursorShape>PointingHandCursor</cursorShape>
                </property>
-               <property name="mouseTracking">
-                <bool>true</bool>
+               <property name="text">
+                <string/>
                </property>
-               <property name="tabletTracking">
-                <bool>true</bool>
+               <property name="icon">
+                <iconset>
+                 <normaloff>images/icons/address-book-light-32.png</normaloff>images/icons/address-book-light-32.png</iconset>
                </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(170, 0, 0);</string>
+               <property name="iconSize">
+                <size>
+                 <width>32</width>
+                 <height>32</height>
+                </size>
                </property>
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
+               <property name="autoRepeatDelay">
+                <number>300</number>
                </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
+               <property name="autoRepeatInterval">
+                <number>100</number>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="financeButton">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>60</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>60</width>
+                 <height>60</height>
+                </size>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>images/icons/cash-light-32.png</normaloff>images/icons/cash-light-32.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>32</width>
+                 <height>32</height>
+                </size>
+               </property>
+               <property name="autoRepeatDelay">
+                <number>300</number>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="productButton">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>60</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>60</width>
+                 <height>60</height>
+                </size>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>images/icons/holding-box-light-32.png</normaloff>images/icons/holding-box-light-32.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>32</width>
+                 <height>32</height>
+                </size>
+               </property>
+               <property name="autoRepeatDelay">
+                <number>300</number>
                </property>
               </widget>
              </item>
@@ -617,8 +708,11 @@ QWidget {
            </widget>
           </item>
           <item>
-           <widget class="QStackedWidget" name="mainSpace_2">
-            <widget class="QWidget" name="page_3"/>
+           <widget class="QStackedWidget" name="mainStackedSpace">
+            <property name="currentIndex">
+             <number>0</number>
+            </property>
+            <widget class="QWidget" name="dashboardPage"/>
             <widget class="QWidget" name="page_4"/>
            </widget>
           </item>

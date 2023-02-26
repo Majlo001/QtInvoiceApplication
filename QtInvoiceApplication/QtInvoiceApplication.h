@@ -3,6 +3,7 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_QtInvoiceApplication.h"
 #include "UserHoverMenu.h"
+#include "dashboardWidget.h"
 
 #include <QMouseEvent>
 #include <QPoint>
@@ -22,6 +23,10 @@ private:
     HoverFrame* hoverFrame;
 
     QFrame* activeUserFrame;
+    QStackedWidget* mainStackedWidget;
+
+
+    DashboardWidget* dashboardWidget;
 
     QPoint cur_pos;
     QPoint new_pos;
@@ -52,5 +57,12 @@ private slots:
     void on_maximizeButton_clicked();
     void on_minimizeButton_clicked();
     void on_restoreButton_clicked();
+
+    // Sidebar buttons
+    void on_dashboardButton_clicked();
+    void on_contactButton_clicked();
+    void on_financeButton_clicked();
+    void on_invoiceButton_clicked();
+    void on_productButton_clicked();
 
 };

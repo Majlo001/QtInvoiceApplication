@@ -13,19 +13,21 @@ QtInvoiceApplication::QtInvoiceApplication(QWidget* parent)
     this->setAttribute(Qt::WA_Hover);
 
     activeUserFrame = ui->activeUser;
-
+    mainStackedWidget = ui->mainStackedSpace;
 
 
     ui->restoreButton->setVisible(false);
+    //ui->dashboardButton->setDown(true);
 
     hoverFrame = new HoverFrame(activeUserFrame);
     activeUserFrame->installEventFilter(this);
 
+    dashboardWidget = new DashboardWidget(this);
+    mainStackedWidget->addWidget(dashboardWidget);
 
 
     connect(hoverFrame->action1, &QAction::triggered, this, &QtInvoiceApplication::actionUserSettingsTriggered);
     connect(hoverFrame->action2, &QAction::triggered, this, &QtInvoiceApplication::actionSignOutTriggered);
-
 }
 
 QtInvoiceApplication::~QtInvoiceApplication()
@@ -33,6 +35,7 @@ QtInvoiceApplication::~QtInvoiceApplication()
     delete ui;
     delete hoverFrame;
     delete activeUserFrame;
+    delete mainStackedWidget;
 }
 
 
@@ -181,6 +184,7 @@ void QtInvoiceApplication::leaveEvent(QEvent* event) {
 }
 
 
+// Top right buttons
 void QtInvoiceApplication::on_closeButton_clicked() {
     close();
 }
@@ -202,6 +206,12 @@ void QtInvoiceApplication::on_restoreButton_clicked() {
 }
 
 
+// Sidebar buttons
+void QtInvoiceApplication::on_dashboardButton_clicked() {};
+void QtInvoiceApplication::on_contactButton_clicked() {};
+void QtInvoiceApplication::on_financeButton_clicked() {};
+void QtInvoiceApplication::on_invoiceButton_clicked() {};
+void QtInvoiceApplication::on_productButton_clicked() {};
 
 bool QtInvoiceApplication::eventFilter(QObject* object, QEvent* event){
     if (object == activeUserFrame) {
