@@ -3,6 +3,11 @@
 #include <QWidget>
 #include "ui_dashboardWidget.h"
 
+#include <QtSql>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QDebug>
+
 class DashboardWidget : public QWidget
 {
 	//Q_OBJECT
@@ -13,4 +18,8 @@ public:
 
 private:
 	Ui::Form *ui;
+	QPushButton* bigButton;
+	QSqlDatabase db;
+
+	void bigButton_clicked();
 };

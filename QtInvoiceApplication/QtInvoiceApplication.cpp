@@ -24,6 +24,7 @@ QtInvoiceApplication::QtInvoiceApplication(QWidget* parent)
 
     dashboardWidget = new DashboardWidget(this);
     mainStackedWidget->addWidget(dashboardWidget);
+    mainStackedWidget->setCurrentWidget(dashboardWidget);
 
 
     connect(hoverFrame->action1, &QAction::triggered, this, &QtInvoiceApplication::actionUserSettingsTriggered);

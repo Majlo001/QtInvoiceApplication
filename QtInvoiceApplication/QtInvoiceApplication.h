@@ -64,5 +64,4 @@ private slots:
     void on_financeButton_clicked();
     void on_invoiceButton_clicked();
     void on_productButton_clicked();
-
 };
