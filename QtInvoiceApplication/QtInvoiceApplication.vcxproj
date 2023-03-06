@@ -55,9 +55,20 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <IncludePath>Z:\QtInvoiceApplication\QtInvoiceApplication\StackedWidgets;$(IncludePath)</IncludePath>
+    <SourcePath>Z:\QtInvoiceApplication\QtInvoiceApplication\StackedWidgets\src;Z:\QtInvoiceApplication\QtInvoiceApplication\StackedWidgets;$(SourcePath)</SourcePath>
+    <PublicIncludeDirectories>Z:\QtInvoiceApplication\QtInvoiceApplication\StackedWidgets;Z:\QtInvoiceApplication\QtInvoiceApplication\StackedWidgets\src;Z:\QtInvoiceApplication\QtInvoiceApplication\StackedWidgets\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
   </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>Z:\QtInvoiceApplication\QtInvoiceApplication\StackedWidgets\src;Z:\QtInvoiceApplication\QtInvoiceApplication\StackedWidgets\include;Z:\QtInvoiceApplication\QtInvoiceApplication\StackedWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>Z:\QtInvoiceApplication\QtInvoiceApplication\StackedWidgets\src;Z:\QtInvoiceApplication\QtInvoiceApplication\StackedWidgets\include;Z:\QtInvoiceApplication\QtInvoiceApplication\StackedWidgets;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
@@ -83,17 +94,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="dashboardWidget.cpp" />
+    <ClCompile Include="StackedWidgets\src\invoiceWidget.cpp" />
+    <ClCompile Include="StackedWidgets\src\dashboardWidget.cpp" />
     <ClCompile Include="UserHoverMenu.cpp" />
     <QtRcc Include="QtInvoiceApplication.qrc" />
-    <QtUic Include="dashboardWidget.ui" />
-    <QtUic Include="QtInvoiceApplication.ui" />
+    <QtUic Include="ui_files\invoiceWidget.ui" />
+    <QtUic Include="ui_files\dashboardWidget.ui" />
+    <QtUic Include="ui_files\QtInvoiceApplication.ui" />
     <QtMoc Include="QtInvoiceApplication.h" />
     <ClCompile Include="QtInvoiceApplication.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="main.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dashboardWidget.h" />
+    <ClInclude Include="StackedWidgets\include\invoiceWidget.h" />
     <ClInclude Include="UserHoverMenu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -23,7 +23,9 @@ QtInvoiceApplication::QtInvoiceApplication(QWidget* parent)
     activeUserFrame->installEventFilter(this);
 
     dashboardWidget = new DashboardWidget(this);
+    invoiceWidget = new InvoiceWidget(this);
     mainStackedWidget->addWidget(dashboardWidget);
+    mainStackedWidget->addWidget(invoiceWidget);
     mainStackedWidget->setCurrentWidget(dashboardWidget);
 
 
@@ -208,10 +210,14 @@ void QtInvoiceApplication::on_restoreButton_clicked() {
 
 
 // Sidebar buttons
-void QtInvoiceApplication::on_dashboardButton_clicked() {};
+void QtInvoiceApplication::on_dashboardButton_clicked() {
+    mainStackedWidget->setCurrentWidget(dashboardWidget);
+};
 void QtInvoiceApplication::on_contactButton_clicked() {};
 void QtInvoiceApplication::on_financeButton_clicked() {};
-void QtInvoiceApplication::on_invoiceButton_clicked() {};
+void QtInvoiceApplication::on_invoiceButton_clicked() {
+    mainStackedWidget->setCurrentWidget(invoiceWidget);
+};
 void QtInvoiceApplication::on_productButton_clicked() {};
 
 bool QtInvoiceApplication::eventFilter(QObject* object, QEvent* event){

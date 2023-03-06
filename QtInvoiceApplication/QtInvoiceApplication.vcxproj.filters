@@ -26,7 +26,7 @@
     <QtRcc Include="QtInvoiceApplication.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
-    <QtUic Include="QtInvoiceApplication.ui">
+    <QtUic Include="ui_files\QtInvoiceApplication.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtMoc Include="QtInvoiceApplication.h">
@@ -43,7 +43,10 @@
     <ClCompile Include="UserHoverMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="dashboardWidget.cpp">
+    <ClCompile Include="StackedWidgets\src\dashboardWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StackedWidgets\src\invoiceWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -54,9 +57,15 @@
     <ClInclude Include="dashboardWidget.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="StackedWidgets\include\invoiceWidget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="dashboardWidget.ui">
+    <QtUic Include="ui_files\dashboardWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui_files\invoiceWidget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

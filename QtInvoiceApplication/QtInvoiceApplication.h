@@ -2,8 +2,10 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_QtInvoiceApplication.h"
+
 #include "UserHoverMenu.h"
 #include "dashboardWidget.h"
+#include "invoiceWidget.h"
 
 #include <QMouseEvent>
 #include <QPoint>
@@ -27,6 +29,7 @@ private:
 
 
     DashboardWidget* dashboardWidget;
+    InvoiceWidget* invoiceWidget;
 
     QPoint cur_pos;
     QPoint new_pos;
