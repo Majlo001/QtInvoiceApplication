@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef DASHBOARDWIDGET_H
+#define DASHBOARDWIDGET_H
+
 #include <QWidget>
 #include "ui_dashboardWidget.h"
 
@@ -23,3 +26,5 @@ private:
 
 	void bigButton_clicked();
 };
+
+#endif //DASHBOARDWIDGET_H

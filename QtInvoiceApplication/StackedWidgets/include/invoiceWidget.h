@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef INVOICEWIDGET_H
+#define INVOICEWIDGET_H
+
 #include <QWidget>
 #include "ui_invoiceWidget.h"
 
@@ -15,3 +18,5 @@ private:
 	Ui::invoiceWidgetClass *ui;
 	QScrollArea* scrollArea;
 };
+
+#endif //INVOICEWIDGET_H

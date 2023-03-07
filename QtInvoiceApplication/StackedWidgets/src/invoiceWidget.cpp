@@ -7,7 +7,10 @@ InvoiceWidget::InvoiceWidget(QWidget *parent)
 	ui->setupUi(this);
 
 	scrollArea = ui->scrollArea;
-
+	scrollArea->setWidgetResizable(true);
+	//scrollArea->setWidget(scrollWidget);
+	scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+	scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 }
 
 InvoiceWidget::~InvoiceWidget(){
